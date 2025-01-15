@@ -1,0 +1,187 @@
+<div class="header-container">
+  <h2>Candidate List</h2>
+  <button class="add-btn" type="button" (click)="openAddModal()"> + Add Candidate</button>
+</div>
+
+<!-- Candidate List Table -->
+<div class="table-container" *ngIf="data.length > 0">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Last Working Day</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let candidate of data">
+        <td>
+              <div class="candidate-info">
+                <p><strong>Name: {{ candidate.firstName }} {{candidate.lastName}}</strong></p>
+                <p>Email: {{ candidate.email }}</p>
+                <p>Technology: {{ candidate.primaryTechnology }}</p>
+                <p>Exp.: {{ candidate.experience }}</p>
+                <p>Mobile No.: {{ candidate.mobileNumber }}</p>
+                <p>Location: {{ candidate.location }}</p>
+                <p>Preferred Loc: {{ candidate.preferredLocation }}</p>
+                <p>PAN: {{ candidate.pancard }}</p>
+                <p>LinkedIn: {{ candidate.linkedInURL }}</p>
+                
+                <p>Candidate Type: {{ candidate.candidateType }}</p>
+              </div>
+        </td>
+        <td> {{candidate.lastWorkingDay}} </td>
+        <!--<td>{{ candidate.firstName }}</td>
+        <td>{{ candidate.lastName }}</td>
+        <td>{{ candidate.email }}</td>
+        <td>{{ candidate.mobileNumber }}</td>
+        <td>{{ candidate.designation }}</td>
+        <td>{{ candidate.experience }}</td>
+        <td>{{ candidate.location }}</td>
+        <td>{{ candidate.primaryTechnology }}</td>
+        <td>{{ candidate.technologyRate }}</td>
+        <td>{{ candidate.linkedInURL }}</td>
+        <td>{{ candidate.pancard }}</td>
+        <td>{{ candidate.highestQualification }}</td>
+        <td>{{ candidate.engagementType }}</td>
+        <td>{{ candidate.availability }}</td>
+        <td>{{ candidate.currentCompany }}</td>
+        <td>{{ candidate.noticePeriodi }}</td>-->
+        <td> 
+          <button class="update-btn" type="button" (click)="openUpdateModal(candidate)">Update</button>
+          <button class="update-btn" type="button" (click)="openDeleteModal(candidate)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Update Candidate Modal -->
+<div *ngIf="selectedCandidate" class="modal">
+  <div class="modal-content">
+    <h3>Update Candidate Details</h3>
+    <form (ngSubmit)="updateData()">
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" [(ngModel)]="selectedCandidate.firstName" name="firstName" required />
+
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" [(ngModel)]="selectedCandidate.lastName" name="lastName" required />
+
+      <label for="age">Email:</label>
+      <input type="email" id="email" [(ngModel)]="selectedCandidate.email" name="eamil" required />
+
+      <label for="preferredLocation">Location:</label>
+      <input type="text" id="preferredLocation" [(ngModel)]="selectedCandidate.preferredLocation" name="preferredLocation" required />
+
+      <label for="designation">Designation:</label>
+      <input type="text" id="designation" [(ngModel)]="selectedCandidate.designation" name="designation" required />
+
+      <label for="experience">Experience:</label>
+      <input type="text" id="experience" [(ngModel)]="selectedCandidate.experience" name="experience" required />
+
+      <label for="candidateType">Candidate Type:</label>
+      <input type="text" id="candidateType" [(ngModel)]="selectedCandidate.candidateType" name="candidateType" required />
+
+      <label for="primaryTechnology">Technology:</label>
+      <input type="text" id="primaryTechnology" [(ngModel)]="selectedCandidate.primaryTechnology" name="primaryTechnology" required />
+
+      <label for="mobileNumber">Mobile Number:</label>
+      <input type="text" id="mobileNumber" [(ngModel)]="selectedCandidate.mobileNumber" name="mobileNumber" required/>
+
+      <button type="submit" >Update</button>
+      <button type="button" (click)="closeUpdateModal()">Cancel</button>
+    </form>
+  </div>
+</div>
+
+<!--For deletion-->
+<div *ngIf="showDeleteModal" class="modal">
+  <div class="modal-content">
+    <h3>Are you sure you want to delete this candidate?</h3>
+    <button (click)="deleteUser()">Yes, Delete</button>
+    <button (click)="closeDeleteModal()">Cancel</button>
+  </div>
+</div>
+
+<!-- Add Candidate Modal -->
+<div *ngIf="showAddModal" class="modal">
+  <div class="modal-content">
+    <h3>Add New Candidate</h3>
+    <form (ngSubmit)="addCandidate()">
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" [(ngModel)]="newCandidate.firstName" name="firstName" required />
+
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" [(ngModel)]="newCandidate.lastName" name="lastName" required />
+
+      <label for="eamil">Email:</label>
+      <input type="email" id="email" [(ngModel)]="newCandidate.email" name="email" required />
+
+      <label for="preferredLocation">Preferred Location:</label>
+      <input type="text" id="preferredLocation" [(ngModel)]="newCandidate.preferredLocation" name="preferredLocation" required />
+
+      <label for="location">Location:</label>
+      <input type="text" id="location" [(ngModel)]="newCandidate.location" name="location" required />
+
+      <label for="experience">Experience:</label>
+      <input type="text" id="experience" [(ngModel)]="newCandidate.experience" name="experience" required />
+
+      <label for="candidateType">Candidate Type:</label>
+      <select class="drop-down" id="candidateType" [(ngModel)]="newCandidate.candidateType" name="candidateType" required>
+        <option *ngFor="let type of master" [value]="type.candidateType">
+          {{ type.candidateType }}
+        </option>
+      </select>
+
+      <label for="primaryTechnology">Technology:</label>
+      <input type="text" id="primaryTechnology" [(ngModel)]="newCandidate.primaryTechnology" name="primaryTechnology" required />
+
+      <label for="mobileNumber">Mobile Number:</label>
+      <input type="text" id="mobileNumber" [(ngModel)]="newCandidate.mobileNumber" name="mobileNumber" required/>
+
+      <label for="designation">Designation:</label>
+      <input type="text" id="designation" [(ngModel)]="newCandidate.designation" name="designation" required/>
+
+      <label for="linkedInURL">LinkedIn:</label>
+      <input type="url" id="mobileNumber" [(ngModel)]="newCandidate.linkedInURL" name="linkedInURL" required/>
+
+      <label for="pancard">Pancard:</label>
+      <input type="text" id="pancard" [(ngModel)]="newCandidate.pancard" name="pancard" required/>
+
+      <label for="highestQualification">Highest Qualification:</label>
+      <input type="text" id="highestQualification" [(ngModel)]="newCandidate.highestQualification" name="highestQualification" required/>
+
+      <label for="engagementType">Engagement Type:</label>
+      <input type="text" id="engagementType" [(ngModel)]="newCandidate.engagementType" name="engagementType" required/>
+
+      <label for="availability">Availability:</label>
+      <select class="drop-down" id="isAvailability" [(ngModel)]="newCandidate.availability" name="isAvailability" required>
+        <option *ngFor="let type of isAvailability" [value]="type.availability">
+          {{ type.availability }}
+        </option>
+      </select>
+
+      <label for="currentCompany">Currrent Company:</label>
+      <input type="text" id="currentCompany" [(ngModel)]="newCandidate.currentCompany" name="currentCompany" required/>
+
+      <label for="noticePeriodi">Notice Period:</label>
+      <input type="text" id="noticePeriodi" [(ngModel)]="newCandidate.noticePeriodi" name="noticePeriodi" required/>
+
+      <label for="currentCTC">Current CTC:</label>
+      <input type="text" id="currentCTC" [(ngModel)]="newCandidate.currentCTC" name="currentCTC" required/>
+
+      <label for="expectedCTC">Expected CTC:</label>
+      <input type="text" id="expectedCTC" [(ngModel)]="newCandidate.expectedCTC" name="expectedCTC" required/>
+
+      <label for="lastWorkingDay">Last Working Day:</label>
+      <input type="text" id="lastWorkingDay" [(ngModel)]="newCandidate.lastWorkingDay" name="lastWorkingDay" required/>
+
+
+      <button type="submit">Add</button>
+      <button type="button" (click)="closeAddModal()">Cancel</button>
+    </form>
+  </div>
+</div>
+
+
+
