@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mn0q9Ef1r+Y=",
+  "dgSpecHash": "R2vl8GZm5b8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\hp\\OneDrive\\Desktop\\Candidate-API\\Candidate-API\\CRUD\\CRUD.csproj",
+  "projectFilePath": "D:\\GitHub-Projects\\jop-portal\\Candidate-API\\CRUD\\CRUD.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hp\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

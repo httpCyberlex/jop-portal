@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hp\\OneDrive\\Desktop\\Candidate-API\\Candidate-API\\CRUD\\CRUD.csproj": {}
+    "D:\\GitHub-Projects\\jop-portal\\Candidate-API\\CRUD\\CRUD.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hp\\OneDrive\\Desktop\\Candidate-API\\Candidate-API\\CRUD\\CRUD.csproj": {
+    "D:\\GitHub-Projects\\jop-portal\\Candidate-API\\CRUD\\CRUD.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hp\\OneDrive\\Desktop\\Candidate-API\\Candidate-API\\CRUD\\CRUD.csproj",
+        "projectUniqueName": "D:\\GitHub-Projects\\jop-portal\\Candidate-API\\CRUD\\CRUD.csproj",
         "projectName": "CRUD",
-        "projectPath": "C:\\Users\\hp\\OneDrive\\Desktop\\Candidate-API\\Candidate-API\\CRUD\\CRUD.csproj",
+        "projectPath": "D:\\GitHub-Projects\\jop-portal\\Candidate-API\\CRUD\\CRUD.csproj",
         "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hp\\OneDrive\\Desktop\\Candidate-API\\Candidate-API\\CRUD\\obj\\",
+        "outputPath": "D:\\GitHub-Projects\\jop-portal\\Candidate-API\\CRUD\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
