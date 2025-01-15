@@ -51,7 +51,7 @@ namespace CRUD.Controllers
                             Availability = reader.GetString(reader.GetOrdinal("Availability")),
                             CandidateType = reader.GetString(reader.GetOrdinal("CandidateType")),
                             CurrentCompany = reader.GetString(reader.GetOrdinal("CurrentCompany")),
-                            NoticePeriodi = reader.GetString(reader.GetOrdinal("NoticePeriodi")),
+                            NoticePeriod = reader.GetString(reader.GetOrdinal("NoticePeriod")),
                             CurrentCTC = reader.GetString(reader.GetOrdinal("CurrentCTC")),
                             ExpectedCTC = reader.GetString(reader.GetOrdinal("ExpectedCTC")),
                             PreferredLocation = reader.GetString(reader.GetOrdinal("PreferredLocation")),
@@ -80,7 +80,7 @@ namespace CRUD.Controllers
         public ActionResult addCandidate([FromBody] CandidateDetails candidate)
         {
             CON = new SqlConnection(this.configuration.GetConnectionString("DefaultConnection"));
-            CMD = new SqlCommand("INSERT INTO CandidateDetails ( FirstName, LastName, Email, MobileNumber, Designation, Experience, Location, PrimaryTechnology, TechnologyRate, LinkedInURL, Pancard, HighestQualification, EngagementType, Availability, CandidateType, CurrentCompany, NoticePeriodi, CurrentCTC, ExpectedCTC, PreferredLocation, LastWorkingDay  ) VALUES(@FirstName, @LastName, @Email, @MobileNumber, @Designation, @Experience, @Location, @PrimaryTechnology, @TechnologyRate,  @LinkedInURL, @Pancard, @HighestQualification, @EngagementType, @Availability, @CandidateType, @CurrentCompany, @NoticePeriodi, @CurrentCTC, @ExpectedCTC, @PreferredLocation, @LastWorkingDay)", CON);
+            CMD = new SqlCommand("INSERT INTO CandidateDetails ( FirstName, LastName, Email, MobileNumber, Designation, Experience, Location, PrimaryTechnology, TechnologyRate, LinkedInURL, Pancard, HighestQualification, EngagementType, Availability, CandidateType, CurrentCompany, NoticePeriod, CurrentCTC, ExpectedCTC, PreferredLocation, LastWorkingDay  ) VALUES(@FirstName, @LastName, @Email, @MobileNumber, @Designation, @Experience, @Location, @PrimaryTechnology, @TechnologyRate,  @LinkedInURL, @Pancard, @HighestQualification, @EngagementType, @Availability, @CandidateType, @CurrentCompany, @NoticePeriod, @CurrentCTC, @ExpectedCTC, @PreferredLocation, @LastWorkingDay)", CON);
             try
             {
                 CON.Open();
@@ -100,7 +100,7 @@ namespace CRUD.Controllers
                 CMD.Parameters.AddWithValue("@Availability", candidate.Availability);
                 CMD.Parameters.AddWithValue("@CandidateType", candidate.CandidateType);
                 CMD.Parameters.AddWithValue("@CurrentCompany", candidate.CurrentCompany);
-                CMD.Parameters.AddWithValue("@NoticePeriodi", candidate.NoticePeriodi);
+                CMD.Parameters.AddWithValue("@NoticePeriod", candidate.NoticePeriod);
                 CMD.Parameters.AddWithValue("@CurrentCTC", candidate.CurrentCTC);
                 CMD.Parameters.AddWithValue("@ExpectedCTC", candidate.ExpectedCTC);
                 CMD.Parameters.AddWithValue("@PreferredLocation", candidate.PreferredLocation);
@@ -134,7 +134,7 @@ namespace CRUD.Controllers
         {
 
             CON = new SqlConnection(this.configuration.GetConnectionString("DefaultConnection"));
-            CMD = new SqlCommand("UPDATE CandidateDetails SET FirstName = @FirstName, LastName = @LastName, Email = @Email, MobileNumber = @MobileNumber, Designation = @Designation, Experience = @Experience, Location = @Location, PrimaryTechnology = @PrimaryTechnology, LinkedInURL = @LinkedInURL, Pancard = @Pancard, HighestQualification = @HighestQualification, EngagementType = @EngagementType, Availability = @Availability, CandidateType = @CandidateType, CurrentCompany = @CurrentCompany, NoticePeriodi = @NoticePeriodi, CurrentCTC = @CurrentCTC, ExpectedCTC = @ExpectedCTC, PreferredLocation = @PreferredLocation, LastWorkingDay = @LastWorkingDay", CON);
+            CMD = new SqlCommand("UPDATE CandidateDetails SET FirstName = @FirstName, LastName = @LastName, Email = @Email, MobileNumber = @MobileNumber, Designation = @Designation, Experience = @Experience, Location = @Location, PrimaryTechnology = @PrimaryTechnology, LinkedInURL = @LinkedInURL, Pancard = @Pancard, HighestQualification = @HighestQualification, EngagementType = @EngagementType, Availability = @Availability, CandidateType = @CandidateType, CurrentCompany = @CurrentCompany, NoticePeriod = @NoticePeriod, CurrentCTC = @CurrentCTC, ExpectedCTC = @ExpectedCTC, PreferredLocation = @PreferredLocation, LastWorkingDay = @LastWorkingDay", CON);
 
 
             try
@@ -155,7 +155,7 @@ namespace CRUD.Controllers
                 CMD.Parameters.AddWithValue("@Availability", update.Availability);
                 CMD.Parameters.AddWithValue("@CandidateType", update.CandidateType);
                 CMD.Parameters.AddWithValue("@CurrentCompany", update.CurrentCompany);
-                CMD.Parameters.AddWithValue("@NoticePeriodi", update.NoticePeriodi);
+                CMD.Parameters.AddWithValue("@NoticePeriod", update.NoticePeriod);
                 CMD.Parameters.AddWithValue("@CurrentCTC", update.CurrentCTC);
                 CMD.Parameters.AddWithValue("@ExpectedCTC", update.ExpectedCTC);
                 CMD.Parameters.AddWithValue("@PreferredLocation", update.PreferredLocation);

@@ -18,7 +18,7 @@
         public string Availability { get; set; }
         public string CandidateType { get; set; }
         public string CurrentCompany { get; set; }
-        public string NoticePeriodi { get; set; }
+        public string NoticePeriod { get; set; }
         public string CurrentCTC { get; set; }
         public string ExpectedCTC { get; set; }
         public string PreferredLocation { get; set; }
